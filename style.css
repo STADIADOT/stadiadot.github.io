@@ -9,7 +9,7 @@ body {
   place-items: center;
   padding: 24px;
   color: #26324b;
-  background: linear-gradient(145deg, #f4f7ff, #fff8f0);
+  background: linear-gradient(145deg, #eff8ff, #ecebff);
   font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
 }
 
@@ -45,7 +45,7 @@ body {
 
 h1 {
   margin: 0;
-  font-size: clamp(26px, 6vw, 34px);
+  font-size: 40px;
   letter-spacing: -1.2px;
 }
 
@@ -74,11 +74,13 @@ label {
 input {
   min-width: 0;
   flex: 1;
-  padding: 13px 14px;
-  border: 1px solid #d9deeb;
-  border-radius: 10px;
+  min-height: 48px;
+  padding: 13px 15px;
+  border: 1px solid #c7d8eb;
+  border-radius: 12px;
   color: inherit;
   font: inherit;
+  background: #fff;
 }
 
 input::placeholder {
@@ -92,18 +94,22 @@ button:focus-visible {
 }
 
 button {
-  padding: 0 18px;
+  min-height: 48px;
+  padding: 0 20px;
   border: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   color: #fff;
-  background: #6258d8;
+  background: #3979c8;
   font: inherit;
+  font-size: 24px;
   font-weight: 700;
   cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
 }
 
 button:hover {
-  background: #5046c4;
+  background: #2d66ad;
+  transform: translateY(-1px);
 }
 
 .greeting-message {
