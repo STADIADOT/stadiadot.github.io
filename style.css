@@ -8,19 +8,19 @@ body {
   display: grid;
   place-items: center;
   padding: 24px;
-  color: #26324b;
-  background: linear-gradient(145deg, #eff8ff, #ecebff);
-  font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  color: #1d1d1f;
+  background: #f2f2f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
 }
 
 .greeting-card {
   position: relative;
-  width: min(100%, 460px);
-  padding: 48px 40px 40px;
-  border: 1px solid #e8eaf3;
-  border-radius: 24px;
+  width: min(100%, 480px);
+  padding: 42px 36px 36px;
+  border: 1px solid #e5e5ea;
+  border-radius: 28px;
   background: #fff;
-  box-shadow: 0 18px 55px rgb(43 55 91 / 10%);
+  box-shadow: 0 14px 40px rgb(28 35 45 / 8%);
   text-align: center;
 }
 
@@ -32,21 +32,21 @@ body {
   place-items: center;
   border-radius: 16px;
   color: #fff;
-  background: #7167e8;
+  background: #007aff;
   font-size: 27px;
 }
 
 .eyebrow {
   margin: 0 0 10px;
-  color: #7167e8;
+  color: #007aff;
   font-size: 14px;
   font-weight: 700;
 }
 
 h1 {
   margin: 0;
-  font-size: 40px;
-  letter-spacing: -1.2px;
+  font-size: clamp(28px, 7vw, 36px);
+  letter-spacing: -1px;
 }
 
 .description {
@@ -57,6 +57,52 @@ h1 {
 
 form {
   text-align: left;
+}
+
+.greeting-style-group {
+  min-width: 0;
+  margin: 0 0 22px;
+  padding: 0;
+  border: 0;
+}
+
+.greeting-style-group legend {
+  margin-bottom: 10px;
+  color: #1d1d1f;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.style-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.style-option {
+  min-width: 0;
+  min-height: 48px;
+  margin: 0;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid #d1d1d6;
+  border-radius: 12px;
+  background: #fff;
+  color: #3a3a3c;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+.style-option:has(input:checked) {
+  border-color: #007aff;
+  background: #f0f7ff;
+  color: #0066d6;
+  box-shadow: inset 0 0 0 1px #007aff;
 }
 
 label {
@@ -74,10 +120,10 @@ label {
 input {
   min-width: 0;
   flex: 1;
-  min-height: 48px;
+  min-height: 52px;
   padding: 13px 15px;
-  border: 1px solid #c7d8eb;
-  border-radius: 12px;
+  border: 1px solid #d1d1d6;
+  border-radius: 14px;
   color: inherit;
   font: inherit;
   background: #fff;
@@ -87,35 +133,67 @@ input::placeholder {
   color: #a1a8b8;
 }
 
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 18px;
+  accent-color: #007aff;
+}
+
 input:focus-visible,
 button:focus-visible {
-  outline: 3px solid #bdb8ff;
+  outline: 3px solid rgb(0 122 255 / 28%);
   outline-offset: 2px;
 }
 
 button {
-  min-height: 48px;
-  padding: 0 20px;
+  min-height: 50px;
+  padding: 0 18px;
   border: 0;
-  border-radius: 12px;
+  border-radius: 14px;
   color: #fff;
-  background: #3979c8;
+  background: #007aff;
   font: inherit;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 180ms ease, transform 180ms ease;
+  transition: background-color 160ms ease, transform 160ms ease;
 }
 
-button:hover {
-  background: #2d66ad;
+button:not(:disabled):hover {
+  background: #0066d6;
   transform: translateY(-1px);
+}
+
+.reset-button {
+  color: #1d1d1f;
+  background: #e5e5ea;
+}
+
+.reset-button:not(:disabled):hover {
+  background: #d8d8de;
+}
+
+.result-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.copy-button:disabled {
+  color: #77777c;
+  background: #e5e5ea;
+  cursor: not-allowed;
 }
 
 .greeting-message {
   min-height: 30px;
   margin: 24px 0 0;
-  color: #5046c4;
+  color: #007aff;
   font-size: 20px;
   font-weight: 700;
 }
@@ -123,6 +201,13 @@ button:hover {
 .input-hint {
   margin: 4px 0 0;
   color: #8790a3;
+  font-size: 13px;
+}
+
+.copy-feedback {
+  min-height: 20px;
+  margin: 10px 0 0;
+  color: #55555a;
   font-size: 13px;
 }
 
@@ -135,7 +220,18 @@ button:hover {
     flex-direction: column;
   }
 
-  button {
-    min-height: 48px;
+  .style-options {
+    grid-template-columns: 1fr;
+  }
+
+  .style-option {
+    min-height: 52px;
+    justify-content: flex-start;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .result-actions {
+    grid-template-columns: 1fr;
   }
 }
