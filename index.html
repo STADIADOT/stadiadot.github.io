@@ -16,6 +16,24 @@
       <p class="description">이름을 알려 주시면 반갑게 인사할게요.</p>
 
       <form id="greeting-form">
+        <fieldset class="greeting-style-group">
+          <legend>인사말 스타일</legend>
+          <div class="style-options">
+            <label class="style-option">
+              <input id="style-warm" type="radio" name="greeting-style" value="warm" checked />
+              <span>따뜻한 인사</span>
+            </label>
+            <label class="style-option">
+              <input type="radio" name="greeting-style" value="playful" />
+              <span>유쾌한 인사</span>
+            </label>
+            <label class="style-option">
+              <input type="radio" name="greeting-style" value="polite" />
+              <span>정중한 인사</span>
+            </label>
+          </div>
+        </fieldset>
+
         <label for="name-input">이름</label>
         <div class="input-row">
           <input
@@ -32,6 +50,11 @@
       </form>
 
       <p id="greeting-message" class="greeting-message" aria-live="polite"></p>
+      <div class="result-actions">
+        <button id="copy-button" class="copy-button" type="button" disabled>인사말 복사하기</button>
+        <button id="reset-button" class="reset-button" type="button">다시 시작</button>
+      </div>
+      <p id="copy-feedback" class="copy-feedback" aria-live="polite"></p>
       <p id="input-hint" class="input-hint">이름을 입력하고 버튼을 눌러 보세요.</p>
     </main>
   </body>
